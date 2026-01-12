@@ -9,11 +9,9 @@ def generate_launch_description():
     pkg_fanuc = get_package_share_directory('fanuc_robot')
     urdf_file = os.path.join(pkg_fanuc, 'urdf', 'fanuc_crx10.urdf.xacro')
 
-    # Process xacro
     robot_description_config = xacro.process_file(urdf_file)
     robot_description = {'robot_description': robot_description_config.toxml()}
 
-    # Gazebo resource path
     gz_resource_path = SetEnvironmentVariable(
         name='GZ_SIM_RESOURCE_PATH', value=pkg_fanuc
     )

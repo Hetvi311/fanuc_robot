@@ -6,7 +6,6 @@
   <xacro:include filename="$(find fanuc_robot)/urdf/gazebo.xacro" />
   <xacro:include filename="$(find fanuc_robot)/urdf/robotic_gripper.xacro"/>
   
-  <!-- Inertial macro for simplified calculations -->
   <xacro:macro name="default_inertial" params="mass">
     <inertial>
       <mass value="${mass}" />
@@ -14,7 +13,6 @@
     </inertial>
   </xacro:macro>
 
-  <!-- World link for Gazebo -->
   <link name="world"/>
   
   <link name="base_link">
@@ -233,7 +231,7 @@
 
   <xacro:robotic_gripper parent="tool0"/>
 
-  <!-- ros2_control configuration -->
+  <!-- ros2_control-->
   <ros2_control name="GazeboSystem" type="system">
     <hardware>
       <plugin>gz_ros2_control/GazeboSimSystem</plugin>
@@ -301,7 +299,7 @@
 
   </ros2_control>
 
-  <!-- Gazebo ros2_control plugin -->
+  <!-- gazebo ros2_control plugin -->
   <gazebo>
     <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
         <parameters>${pkg_path}/config/ros2_controllers.yaml</parameters>
