@@ -9,7 +9,7 @@ This repository contains the Fanuc CRX-10iA robotic arm setup for ROS 2 (Jazzy) 
 ```
 mkdir -p ~/fanuc_ws/src
 cd ~/fanuc_ws/src
-ros2 pkg create fanuc_robot --build-type ament_python
+ros2 pkg create fanuc_robot --build-type ament_cmake --license Apache-2.0
 ```
 ---
 
